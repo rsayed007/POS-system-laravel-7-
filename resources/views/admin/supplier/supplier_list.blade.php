@@ -11,7 +11,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">User List</h1>
+    <h1 class="h3 mb-2 text-gray-800">Supplier List</h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
     <!-- DataTales Example -->
@@ -49,16 +49,16 @@
             </tfoot>
 
             <tbody>
-                @foreach ($suppliers as $user)
+                @foreach ($suppliers as $supplier)
                     
                     <tr>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{$user->mobile}}</td>
-                        <td> {!! ($user->status==1)? '<span class=" badge-success badge-pill">active</span>':'<span class="badge-danger badge-pill">disable</span>' !!}</td>
+                        <td>{{$supplier->name}}</td>
+                        <td>{{$supplier->email}}</td>
+                        <td>{{$supplier->mobile}}</td>
+                        <td> {!! ($supplier->status==1)? '<span class=" badge-success badge-pill">active</span>':'<span class="badge-danger badge-pill">disable</span>' !!}</td>
                         <td>
-                            <a href="{{route('user-edit',$user->id)}}">Edit </a>
-                            ||<a href="{{route('user-delete',$user->id)}}"> Delete</a>
+                            <a href="{{route('supplier-edit',$supplier->id)}}">Edit </a>
+                            ||<a href="{{route('supplier-delete',$supplier->id)}}"> Delete</a>
 
                         </td>
                     </tr>

@@ -39,4 +39,11 @@ class SupplierController extends Controller
 
         return redirect()->route('supplier-list');
     }
+
+    public function SupplierDelete($id){
+        $supplier = Supplier::findOrFail($id);
+        $supplier->delete();
+
+        return redirect()->route('supplier-list')->with('status','Supplier successfully deleted');
+    }
 }
