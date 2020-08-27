@@ -46,4 +46,32 @@ class SupplierController extends Controller
 
         return redirect()->route('supplier-list')->with('status','Supplier successfully deleted');
     }
+    public function SupplierEdit($id){
+        $supplier = Supplier::findOrFail($id);
+    
+        return \view('admin.supplier.supplier_edit', \compact('supplier'));
+    }
+    public function SupplierUpdate( Request $request, $id){
+
+        $request->validate([
+            'name'      => 'required',
+            'email' => 'email',
+            'mobile' => 'required|numeric',
+            'updated_by' => 'required',
+            'address' => 'required',
+            'status' => 'required',
+        ]);
+
+        $supplier = Supplier::findOrFail($id);
+        $supplier->name = $request->name;
+        $supplier->email = $request->email;
+        $supplier->mobile = $request->mobile;
+        $supplier->updated_by = $request->updated_by;
+        $supplier->address = $request->address;
+        $supplier->status = $request->status;
+        $supplier->created_at = Carbon::now();
+        $supplier->save();
+
+        return redirect()->route('supplier-list')->with('status','Supplier successfully updated');
+    }
 }

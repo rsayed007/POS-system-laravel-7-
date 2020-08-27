@@ -12,7 +12,7 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Supplier List</h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+    <p class="mb-4"></p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -32,8 +32,6 @@
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Mobile</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
@@ -41,25 +39,20 @@
             <tfoot>
               <tr>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Mobile</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
             </tfoot>
 
             <tbody>
-                @foreach ($suppliers as $supplier)
+                @foreach ($units as $unit)
                     
                     <tr>
-                        <td>{{$supplier->name}}</td>
-                        <td>{{$supplier->email}}</td>
-                        <td>{{$supplier->mobile}}</td>
-                        <td> {!! ($supplier->status==1)? '<span class=" badge-success badge-pill">active</span>':'<span class="badge-danger badge-pill">disable</span>' !!}</td>
+                        <td>{{$unit->name}}</td>
+                        <td> {!! ($unit->status==1)? '<span class=" badge-success badge-pill">active</span>':'<span class="badge-danger badge-pill">disable</span>' !!}</td>
                         <td>
-                            <a href="{{route('supplier-edit',$supplier->id)}}"> <span class="btn btn-sm btn-info" >Edit</span> </a>
-                            <a href="{{route('supplier-delete',$supplier->id)}}"> <span class="btn btn-sm btn-danger" >Delete</span></a>
-
+                            <a href="{{route('unit-edit',$unit->id)}}"> <span class="btn btn-sm btn-info" >Edit</span> </a>
+                            <a href="{{route('unit-delete',$unit->id)}}"> <span class="btn btn-sm btn-danger" >Delete</span></a>
                         </td>
                     </tr>
                 @endforeach
