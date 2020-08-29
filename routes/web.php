@@ -69,7 +69,7 @@ Route::group( ['prefix'=>'unit', 'middleware'=>['auth','admin']],  function(){
     Route::get('/edit/{id}', 'Admin\UnitController@UnitEdit')->name('unit-edit');
     Route::post('/update/{id}', 'Admin\UnitController@UnitUpdate')->name('unit-update');
 
-});
+});    
 
 Route::group( ['prefix'=>'category', 'middleware'=>['auth','admin']],  function(){
 
@@ -79,6 +79,18 @@ Route::group( ['prefix'=>'category', 'middleware'=>['auth','admin']],  function(
     Route::get('/delete/{id}', 'Admin\CategoryController@CategoryDelete')->name('category-delete');
     Route::get('/edit/{id}', 'Admin\CategoryController@CategoryEdit')->name('category-edit');
     Route::post('/update/{id}', 'Admin\CategoryController@CategoryUpdate')->name('category-update');
+
+});
+
+
+Route::group( ['prefix'=>'product', 'middleware'=>['auth','admin']],  function(){
+
+    Route::get('/list', 'Admin\ProductController@ProductList')->name('product-list');
+    Route::get('/add', 'Admin\ProductController@ProductAdd')->name('product-add');
+    Route::post('/store', 'Admin\ProductController@ProductStore')->name('product-store');
+    Route::get('/delete/{id}', 'Admin\ProductController@ProductDelete')->name('product-delete');
+    Route::get('/edit/{id}', 'Admin\ProductController@ProductEdit')->name('product-edit');
+    Route::post('/update/{id}', 'Admin\ProductController@ProductUpdate')->name('product-update');
 
 });
 

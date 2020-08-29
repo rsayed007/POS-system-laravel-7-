@@ -83,6 +83,20 @@
       </div>
     </li>
 
+    <li class="nav-item">
+      <a class="nav-link collapsed"  href="#" data-toggle="collapse" data-target="#Product" aria-expanded="true" aria-controls="Product">
+        <i class="fas fa-fw fa-users"></i>
+        <span>Product</span>
+      </a>
+      <div id="Product" class="collapse" aria-labelledby="Product" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Products Components:</h6>
+          <a class="collapse-item" href="{{route('product-add')}}"> Add</a>
+          <a class="collapse-item" href="{{route('product-list')}}"> List</a>
+        </div>
+      </div>
+    </li>
+
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
