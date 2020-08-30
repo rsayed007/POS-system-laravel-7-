@@ -94,3 +94,14 @@ Route::group( ['prefix'=>'product', 'middleware'=>['auth','admin']],  function()
 
 });
 
+Route::group( ['prefix'=>'purchase', 'middleware'=>['auth','admin']],  function(){
+
+    Route::get('/list', 'Admin\PurchaseController@PurchaseList')->name('purchase-list');
+    Route::get('/add', 'Admin\PurchaseController@PurchaseAdd')->name('purchase-add');
+    Route::post('/store', 'Admin\PurchaseController@PurchaseStore')->name('purchase-store');
+    Route::get('/delete/{id}', 'Admin\PurchaseController@PurchaseDelete')->name('purchase-delete');
+    Route::get('/edit/{id}', 'Admin\PurchaseController@PurchaseEdit')->name('purchase-edit');
+    Route::post('/update/{id}', 'Admin\PurchaseController@PurchaseUpdate')->name('purchase-update');
+
+});
+

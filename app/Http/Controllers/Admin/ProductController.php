@@ -28,7 +28,7 @@ class ProductController extends Controller
 
         $request->validate([
             'name'      => 'required|unique:products',
-            'updated_by' => 'required',
+            'created_by' => 'required',
             'supplier_id' => 'required',
             'category_id' => 'required',
             'quantity' => 'required',
