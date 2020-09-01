@@ -105,3 +105,4 @@ Route::group( ['prefix'=>'purchase', 'middleware'=>['auth','admin']],  function(
 
 });
 
+Route::get('/load-product', 'Admin\NormalController@LoadProduct')->name('load-product');

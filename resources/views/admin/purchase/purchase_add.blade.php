@@ -71,13 +71,13 @@
 
                   <div class="col-md-4" >
                     <div class="form-group">
-                        <label for="">Product Name:</label>
+                        <label for="">Category Name:</label>
                         
-                        <select required class="form-control" name="product_id" id="product_id" value="{{old('product_id')}}">
-                          <option value="">-- Select Product --</option>
-                          @foreach ($products as $prosuct)
-                            <option value="{{$prosuct->id}}">{{$prosuct->name}}</option>
-                          @endforeach
+                        <select required class="form-control" name="category_id" id="category_id" value="{{old('category_id')}}">
+                          <option value="">-- Select Category --</option>
+                          {{-- @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                          @endforeach --}}
                         </select>
                     </div> 
                   </div>
@@ -89,7 +89,20 @@
                 <div class="row">
 
 
-                  <div class="col-md-5" >
+                  <div class="col-md-4" >
+                    <div class="form-group">
+                        <label for="">Product Name:</label>
+                        
+                        <select required class="form-control" name="product_id" id="product_id" value="{{old('product_id')}}">
+                          <option value="">-- Select Product --</option>
+                          @foreach ($products as $prosuct)
+                            <option value="{{$prosuct->id}}">{{$prosuct->name}}</option>
+                          @endforeach
+                        </select>
+                    </div> 
+                  </div>
+
+                  <div class="col-md-2" >
                     <div class="form-group">
                         <label for="">Quantity:</label>
                         <input type="number" required class="form-control" placeholder="purchase quantity" value="{{old('buying_qut')}}" id="buying_qut" name="buying_qut">
@@ -104,7 +117,7 @@
 
                   
 
-                  <div class="col-md-5" >
+                  <div class="col-md-4" >
                     <div class="form-group">
                         <label for="">Total Price:</label>
                         <input type="number" required class="form-control" placeholder="total price" value="{{old('buying_price')}}" id="buying_price" name="buying_price">
@@ -156,4 +169,40 @@
 
     <!-- Page level custom scripts -->
     <script src="{{asset('admin/js/demo/datatables-demo.js')}}"></script>
+
+    {{-- <script src="{{ asset('admin/vendor/jquery/jquery.min.js')}}"></script> --}}
+
+    <script type="text/javascript" >
+
+      $(document).ready(function() {
+
+        $(document).on('change','#supplier_id',function() {
+          var supplier_id = $(this).val();
+          // console.log(supplier_id )
+  
+          $.ajax({
+            url: "{{route('load-product')}}",
+            // url: "/load-product",
+            type: "GET",
+            data:{ supplier_id:supplier_id},
+            // cache: false,
+            // dataType: 'json',
+            success: function(data){
+              var html = '<option value="">Select Category</option>';
+                $.each(data,function(key,value){
+                  html += '<option value="'+value.category_id+'">'+value.category__product.name+'</option>';
+                });
+                $('#category_id').html(html);
+                console.log(data);
+              
+            }
+          });
+  
+        })
+      });
+      
+    </script>
+
+
 @endpush
+
