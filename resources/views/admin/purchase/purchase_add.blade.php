@@ -172,7 +172,8 @@
           <input name="supplier_id[]" value="@{{supplier_id}}" type="hidden"> @{{supplier_name}}
           <input name="purchase_id[]" value="@{{purchase_id}}"  type="hidden">
         </td>
-        <td width="15%"> <input class="form-control form-control-sm text-right caategory_id" name="caategory_id[]" value="@{{caategory_id}}" type="hidden"> @{{category_name}} </td>
+
+        <td width="15%"> <input class="form-control form-control-sm text-right caategory_id" name="category_id[]" value="@{{category_id}}" type="hidden"> @{{category_name}} </td>
         <td width="15%"> <input class="form-control form-control-sm text-right product_id" name="product_id[]" value="@{{product_id}}" type="hidden"> @{{product_name}} </td>
         <td width="10%"> <input class="form-control form-control-sm text-right buying_qunt" id="buying_qunt" name="buying_qunt[]" min="1" value="1" type="number"> @{{caategory_id}} </td>
         <td width="10%"> <input class="form-control form-control-sm text-right unit_price" id="unit_price" readonly name="unit_price[]" min="1" value="1" type="number"> </td>
@@ -198,13 +199,13 @@
           var category_name = $('#category_id').find('option:selected').text();
           var product_id = $('#product_id').val();
           var product_name = $('#product_id').find('option:selected').text();
-          // console.log(supplier_id);
-          // console.log(supplier_name);
-          // console.log(purchase_id);
-          // console.log(category_id);
-          // console.log(category_name);
-          // console.log(product_id);
-          // console.log(product_name);
+          console.log(supplier_id);
+          console.log(supplier_name);
+          console.log(purchase_id);
+          console.log(category_id);
+          console.log(category_name);
+          console.log(product_id);
+          console.log(product_name);
 
           var source = $("#document-template").html();
           var template = Handlebars.compile(source);
