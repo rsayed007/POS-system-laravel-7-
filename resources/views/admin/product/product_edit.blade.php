@@ -61,7 +61,7 @@
 
                 <div class="row">
 
-                  <div class="col-md-4" >
+                  <div class="col-md-6" >
                     <div class="form-group">
                       
                       <label for="">Category:</label>
@@ -72,15 +72,15 @@
                         </select>
                     </div> 
                   </div> 
-
+{{-- 
                   <div class="col-md-4" >
                     <div class="form-group">
                         <label for="">Quantity:</label>
                         <input type="number" required class="form-control" placeholder="Product quantity" value="{{$product->quantity}}" id="quantity" name="quantity">
                       </div> 
-                  </div>
+                  </div> --}}
 
-                  <div class="col-md-4" >
+                  <div class="col-md-6" >
                     <div class="form-group">
                         <label for="">Unit:</label>
                         <select required class="form-control" name="unit_id" id="unit_id" value="{{old('unit_id')}}">

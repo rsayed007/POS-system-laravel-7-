@@ -52,7 +52,7 @@
                         <td> {!! ($unit->status==1)? '<span class=" badge-success badge-pill">active</span>':'<span class="badge-danger badge-pill">disable</span>' !!}</td>
                         <td>
                             <a href="{{route('unit-edit',$unit->id)}}"> <span class="btn btn-sm btn-info" >Edit</span> </a>
-                            <a href="{{route('unit-delete',$unit->id)}}"> <span class="btn btn-sm btn-danger" >Delete</span></a>
+                            {{-- <a href="{{route('unit-delete',$unit->id)}}"> <span class="btn btn-sm btn-danger" >Delete</span></a> --}}
                         </td>
                     </tr>
                 @endforeach

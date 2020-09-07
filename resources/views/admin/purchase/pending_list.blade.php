@@ -11,7 +11,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Supplier List</h1>
+    <h1 class="h3 mb-2 text-gray-800">Purchase List</h1>
     <p class="mb-4"></p>
 
     <!-- DataTales Example -->
@@ -31,28 +31,45 @@
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th>Name</th>
+                <th>Purchase No</th>
+                <th>Date</th>
+                <th>Product Name</th>
+                <th>Supplier</th>
+                <th>Quentity</th>
+                <th>Price</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
-                <th>Name</th>
+                <th>Purchase No</th>
+                <th>Date</th>
+                <th>Product Name</th>
+                <th>Supplier</th>
+                <th>Quentity</th>
+                <th>Price</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
             </tfoot>
 
             <tbody>
-                @foreach ($categories as $category)
+                @foreach ($pending_data as $purchase)
                     
                     <tr>
-                        <td>{{$category->name}}</td>
-                        <td> {!! ($category->status==1)? '<span class=" badge-success badge-pill">active</span>':'<span class="badge-danger badge-pill">disable</span>' !!}</td>
+                        <td>{{$purchase->purchase_id}}</td>
+                        <td>{{$purchase->date}}</td>
+                        <td>{{$purchase->Product_Purchase->name}}</td>
+                        
+                        <td>{{$purchase->Supplier_Purchase->name}}</td>
+                        <td>{{$purchase->buying_qut}}
+                          <span class=" badge-success text-xs badge-pill">{{$purchase->Product_Purchase->Unit_Product->name}}</span> 
+                        </td>
+                        <td>{{$purchase->buying_price}}</td>
+                        <td> {!! ($purchase->status==1)? '<span class=" badge-success badge-pill">active</span>':'<span class="badge-danger badge-pill">pending</span>' !!}</td>
                         <td>
-                            <a href="{{route('category-edit',$category->id)}}"> <span class="btn btn-sm btn-info" >Edit</span> </a>
-                            {{-- <a href="{{route('category-delete',$category->id)}}"> <span class="btn btn-sm btn-danger" >Delete</span></a> --}}
+                            <a href="{{route('purchase-approve',$purchase->id)}}"> <span class="btn btn-sm btn-info" >Approve</span></a>
                         </td>
                     </tr>
                 @endforeach

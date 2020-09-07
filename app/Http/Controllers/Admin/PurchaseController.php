@@ -115,4 +115,25 @@ class PurchaseController extends Controller
 
         return redirect()->route('purchase-list')->with('status','Purchase successfully updated');
     }
+
+    public function PurchasePending()
+    {
+        $pending_data = Purchase::orderBy('date','desc')->orderBy('id','desc')->where('status','0')->get();
+        return \view('admin.purchase.pending_list', \compact('pending_data'));
+    }
+
+    public function PendingApprove($id)
+    {
+        $purchase_item = Purchase::findOrFail($id);
+        $product = Product::where('id',$purchase_item->product_id)->update([
+            'quantity' =>$purchase_item->buying_qut
+        ]);
+        if ($product) {
+            Purchase::findOrFail($id)->update([
+                'status' => '1'
+            ]);
+        }
+
+        return redirect()->back()->with('status','product approved');
+    }
 }

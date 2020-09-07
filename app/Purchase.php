@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Purchase extends Model
 {
     
+    protected $fillable = ['status'];
+
     public function Supplier_Purchase(){
         return $this->belongsTo(Supplier::class,'supplier_id','id') ;
     }

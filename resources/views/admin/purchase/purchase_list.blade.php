@@ -69,8 +69,12 @@
                         <td>{{$purchase->buying_price}}</td>
                         <td> {!! ($purchase->status==1)? '<span class=" badge-success badge-pill">active</span>':'<span class="badge-danger badge-pill">pending</span>' !!}</td>
                         <td>
-                            <a href="{{route('purchase-edit',$purchase->id)}}"> <span class="btn btn-sm btn-info" >Edit</span> </a>
-                            <a href="{{route('purchase-delete',$purchase->id)}}"> <span class="btn btn-sm btn-danger" >Delete</span></a>
+                          @if ($purchase->status==0)
+                            <a disable href="{{route('purchase-delete',$purchase->id)}}"> <span class="btn btn-sm btn-danger" >Delete</span></a>
+                          @else
+                            <a disable > <span class="btn btn-sm btn-success" >Approved</span></a>
+                        
+                          @endif
                         </td>
                     </tr>
                 @endforeach

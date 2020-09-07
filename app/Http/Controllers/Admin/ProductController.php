@@ -31,7 +31,6 @@ class ProductController extends Controller
             'created_by' => 'required',
             'supplier_id' => 'required',
             'category_id' => 'required',
-            'quantity' => 'required',
             'unit_id' => 'required',
             'status' => 'required',
         ]);
@@ -41,7 +40,6 @@ class ProductController extends Controller
         $product->created_by    = $request->created_by;
         $product->supplier_id   = $request->supplier_id;
         $product->category_id   = $request->category_id;
-        $product->quantity      = $request->quantity;
         $product->unit_id       = $request->unit_id;
         $product->status        = $request->status;
 
@@ -80,7 +78,6 @@ class ProductController extends Controller
             'updated_by' => 'required',
             'supplier_id' => 'required',
             'category_id' => 'required',
-            'quantity' => 'required',
             'unit_id' => 'required',
             'status' => 'required',
         ]);
@@ -90,7 +87,6 @@ class ProductController extends Controller
         $product->updated_by = $request->updated_by;
         $product->supplier_id = $request->supplier_id;
         $product->category_id = $request->category_id;
-        $product->quantity = $request->quantity;
         $product->unit_id = $request->unit_id;
         $product->status = $request->status;
         $product->created_at = Carbon::now();

@@ -58,7 +58,7 @@
                         <td> {!! ($supplier->status==1)? '<span class=" badge-success badge-pill">active</span>':'<span class="badge-danger badge-pill">disable</span>' !!}</td>
                         <td>
                             <a href="{{route('supplier-edit',$supplier->id)}}"> <span class="btn btn-sm btn-info" >Edit</span> </a>
-                            <a href="{{route('supplier-delete',$supplier->id)}}"> <span class="btn btn-sm btn-danger" >Delete</span></a>
+                            {{-- <a href="{{route('supplier-delete',$supplier->id)}}"> <span class="btn btn-sm btn-danger" >Delete</span></a> --}}
 
                         </td>
                     </tr>

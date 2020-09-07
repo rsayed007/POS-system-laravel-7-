@@ -100,7 +100,9 @@ Route::group( ['prefix'=>'purchase', 'middleware'=>['auth','admin']],  function(
     Route::get('/add', 'Admin\PurchaseController@PurchaseAdd')->name('purchase-add');
     Route::post('/store', 'Admin\PurchaseController@PurchaseStore')->name('purchase-store');
     Route::get('/delete/{id}', 'Admin\PurchaseController@PurchaseDelete')->name('purchase-delete');
-    Route::get('/edit/{id}', 'Admin\PurchaseController@PurchaseEdit')->name('purchase-edit');
+    Route::get('/pending/list', 'Admin\PurchaseController@PurchasePending')->name('purchase-pending-list');
+    Route::get('/pending/{id}', 'Admin\PurchaseController@PendingApprove')->name('purchase-approve');
+
     Route::post('/update/{id}', 'Admin\PurchaseController@PurchaseUpdate')->name('purchase-update');
 
 });

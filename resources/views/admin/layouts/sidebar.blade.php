@@ -105,8 +105,9 @@
       <div id="purchase" class="collapse" aria-labelledby="purchase" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Purchases Components:</h6>
-          <a class="collapse-item" href="{{route('purchase-add')}}"> Add</a>
-          <a class="collapse-item" href="{{route('purchase-list')}}"> List</a>
+          <a class="collapse-item" href="{{route('purchase-add')}}">Add</a>
+          <a class="collapse-item" href="{{route('purchase-list')}}">List</a>
+          <a class="collapse-item" href="{{route('purchase-pending-list')}}">Pending List</a>
         </div>
       </div>
     </li>
